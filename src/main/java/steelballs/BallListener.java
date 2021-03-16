@@ -36,7 +36,7 @@ public class BallListener extends MouseAdapter {
     }
 
     private int getRandomSpeed(int speed) {
-        int speedConst = speed / 100;
+        int speedConst = speed / 24;
         return random.nextInt(speedConst * 2) - speedConst;
     }
 }
