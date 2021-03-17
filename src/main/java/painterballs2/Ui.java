@@ -9,9 +9,9 @@ public class Ui {
         JFrame jFrame = new JFrame("SteelBalls");
         jFrame.pack();
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.setBackground(Color.darkGray);
+        jFrame.setBackground(Color.PINK);
         jFrame.setVisible(true);
-        jFrame.setSize(1550,900);
+        jFrame.setSize(1000,1000);
         jFrame.setLocationRelativeTo(null);
         BallContainer ballContainer =  new BallContainer(jFrame);
         jFrame.add(ballContainer);

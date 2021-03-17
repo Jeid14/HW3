@@ -7,13 +7,13 @@ import java.awt.geom.Point2D;
 public class Ball extends Thread{
     private Ellipse2D.Double ball;
     private final Dimension ballDimension;
-    private final Point2D.Double ballCoordinates;
+    private Point2D.Double ballCoordinates;
     private int speedX;
     private int speedY;
     private  Color ballColor;
     private  int radius;
-    private final int width;
-    private final int height;
+    private int width;
+    private int height;
 
     public Ball(double x, double y, int radius, int speedX, int speedY, int width, int height) {
         this.width = width;
@@ -94,19 +94,23 @@ public class Ball extends Thread{
         this.speedY = speedY;
     }
 
-    public void setBallColor(Color ballColor) {
-        this.ballColor = ballColor;
-    }
-
-    public void setRadius(int radius) {
-        this.radius = radius;
-    }
-
     public int getSpeedX() {
         return speedX;
     }
 
     public int getSpeedY() {
         return speedY;
+    }
+
+    public void setBallCoordinates(Point2D.Double ballCoordinates) {
+        this.ballCoordinates = ballCoordinates;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 }
