@@ -1,4 +1,4 @@
-package servlet;
+package websocket;
 
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
@@ -13,17 +13,20 @@ import java.util.Locale;
 @WebSocket
 public class ServerEndPoint {
     Session session = null;
-    private List<Session> sessionList = new LinkedList<>();
+    private final static List<Session> sessionList = new LinkedList<>();
+
     @OnWebSocketConnect
-    public void getConnect(Session session){
+    public void onConnect(Session session){
+        System.out.println(session);
+        onText(session,"Someone connected!!!");
         this.session = session;
         sessionList.add(session);
-
     }
+
     @OnWebSocketMessage
-    public void getMessages(Session session,String msg){
+    public void onText(Session session,String msg){
         if(msg.equalsIgnoreCase("Exit")){
-            getClose(session,1000,"Потому что могу");
+           session.close();
         }else {
             sessionList.forEach(s -> {
                 if(s == this.session){
@@ -43,8 +46,11 @@ public class ServerEndPoint {
         }
 
     }
+
     @OnWebSocketClose
-    public void getClose(Session session,int status,String reason){
+    public void onClose(Session session,int status,String reason){
         sessionList.remove(session);
+        onText(session,"Someone disconnected!!");
     }
+
 }
