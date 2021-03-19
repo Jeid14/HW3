@@ -11,7 +11,7 @@ public class Ui {
     public Ui() {
         JFrame frame = new JFrame("Calculator");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.getContentPane().setBackground(new Color(255, 140, 94, 168));
+        frame.getContentPane().setBackground(new Color(255, 253, 94, 131));
 
         JTextField firstNumberText = new JTextField();
         firstNumberText.setBounds(0, 0, 483, 80);
